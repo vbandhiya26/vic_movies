@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vic_Movies</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #ff3d00, #ff9100);
+            padding: 15px 30px;
+            box-shadow: 0 4px 10px rgba(255, 61, 0, 0.4);
+        }
+
+        /* Logo Styling */
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.9);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Search Bar */
+        .search-bar {
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            width: 250px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .search-bar:focus {
+            width: 300px;
+            outline: none;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Section for Latest Releases */
+        .latest-releases {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .latest-releases h2 {
+            border-bottom: 3px solid #ff3d00;
+            display: inline-block;
+            padding-bottom: 5px;
+            font-size: 26px;
+            text-transform: uppercase;
+        }
+
+        /* Movie Grid */
+        .movies {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        /* Movie Cards */
+        .movie {
+            background-color: #1e1e1e;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            width: 180px;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .movie:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(255, 61, 0, 0.5);
+        }
+
+        .movie img {
+            width: 160px;
+            height: 240px;
+            border-radius: 10px;
+        }
+
+        .movie p {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff9100;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .search-bar {
+                width: 200px;
+            }
+            .search-bar:focus {
+                width: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Vic_Movies</div>
+        <input type="text" placeholder="Search here..." class="search-bar">
+    </header>
+
+    <section class="latest-releases">
+        <h2>Latest Releases</h2>
+        <div class="movies">
+            <div class="movie" onclick="window.location.href='agent.html'">
+                <img src="movie1.jpg" alt="Agent">
+                <p>AGENT</p>
+            </div>
+            <div class="movie" onclick="window.location.href='pathaan.html'">
+                <img src="movie2.jpg" alt="Pathaan">
+                <p>PATHAAN</p>
+            </div>
+            <div class="movie" onclick="window.location.href='chhava.html'">
+                <img src="movie3.jpg" alt="Chhava">
+                <p>CHHAVA</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add fade-in effect on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            let movies = document.querySelectorAll(".movie");
+            movies.forEach((movie, index) => {
+                setTimeout(() => {
+                    movie.style.opacity = "1";
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
